@@ -1,0 +1,23 @@
+{
+  "name": "node.js-googledrive-api",
+  "version": "1.0.0",
+  "description": "Google Drive API implementation with Node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skqoaudgh/Node.js-GoogleDrive-API.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skqoaudgh/Node.js-GoogleDrive-API/issues"
+  },
+  "homepage": "https://github.com/skqoaudgh/Node.js-GoogleDrive-API#readme",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1"
+  }
+}
