@@ -18,6 +18,8 @@
   "homepage": "https://github.com/skqoaudgh/Node.js-GoogleDrive-API#readme",
   "dependencies": {
     "ejs": "^2.6.2",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "googleapis": "^40.0.1",
+    "request": "^2.88.0"
   }
 }
