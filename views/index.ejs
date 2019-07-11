@@ -9,10 +9,18 @@
     </head>
     <body>
         <div class="wrapper">
+            <form class="form-wrapper" action="/" method="POST">
+                <input type="text" name="name" id="searchtext">
+                <button type="submit">Search</button>
+            </form>
             <ul class="filelist">
-                <% for(let i=0; i<listFiles.length; i++) { %>
-                    <li class="fileitem" name=<%= listFiles[i].name %> id=<%= listFiles[i].id %>><%= listFiles[i].name %></li>
-                <% } %> 
+                <% if(listFiles.length > 0) { %>
+                    <% for(let i=0; i<listFiles.length; i++) { %>
+                        <li class="fileitem" name=<%= listFiles[i].name %> id=<%= listFiles[i].id %>><%= listFiles[i].name %></li>
+                    <% } %> 
+                <% } else { %>
+                        <li class="filenone">No file found.</li>
+                <% } %>
             </ul>
         </div>
     </body>
