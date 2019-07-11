@@ -4,12 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" src="text/css" href="style.css">
         <title>Google Drive</title>
     </head>
     <body>
-        <% for(let i=0; i<listFiles.length; i++) { %>
-            <%= listFiles[i].id %> <%= listFiles[i].name %>
-            <br>
-        <% } %> 
+        <div class="wrapper">
+            <ul class="filelist">
+                <% for(let i=0; i<listFiles.length; i++) { %>
+                    <li class="fileitem" name=<%= listFiles[i].name %> id=<%= listFiles[i].id %>><%= listFiles[i].name %></li>
+                <% } %> 
+            </ul>
+        </div>
     </body>
+    <script type="text/javascript" src="script.js"></script>
 </html>

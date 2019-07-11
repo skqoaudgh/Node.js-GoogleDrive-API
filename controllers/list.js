@@ -22,11 +22,41 @@ function listFiles(req, res, auth) {
     });
 }
 
-module.exports = (req, res) => {
-    fs.readFile('credentials.json', (err, content) => {
-        if (err) {
-            return console.error('Error loading client secret file:', err);
-        }
-        listAuth.authorize(JSON.parse(content), listFiles, req, res);
+function downloadFile(req, res, auth) {
+    const drive = google.drive({version: 'v3', auth});
+    const fileId = req.params.id;
+    const dest = fs.createWriteStream(req.params.name);
+    drive.files.get({
+        fileId: fileId,
+        alt: 'media'
+    }, {responseType: 'stream'},
+    function(error, result) {
+        result.data
+        .on('end', function () {
+            res.redirect('/');
+        })
+        .on('error', function (error) {
+            console.error('Error during download', error);
+        })
+        .pipe(dest);
     });
+}
+
+module.exports = {
+    listFile: (req, res) => {
+        fs.readFile('credentials.json', (err, content) => {
+            if (err) {
+                return console.error('Error loading client secret file:', err);
+            }
+            listAuth.authorize(JSON.parse(content), listFiles, req, res);
+        });
+    },
+    downloadFile: (req, res) => {
+        fs.readFile('credentials.json', (err, content) => {
+            if (err) {
+                return console.error('Error loading client secret file:', err);
+            }
+            listAuth.authorize(JSON.parse(content), downloadFile, req, res);
+        });
+    }
 }
