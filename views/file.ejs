@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Detail information</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="filelabel">파일이름</div><span class="fileinfo"><%= target.name %></span><br>
+            <div class="filelabel">크기</div><span class="fileinfo"><%= target.size %>bytes</span><br>
+            <div class="filelabel">생성시간</div><span class="fileinfo"><%= target.createdTime %></span><br>
+            <div class="filelabel">수정시간</div><span class="fileinfo"><%= target.modifiedTime %></span><br>
+            <div class="filelabel">파일소유주</div><span class="fileinfo"><%= target.owners[0].displayName %>(<%= target.owners[0].emailAddress %>)</span><br>
+            <button type="button" class="downloadbtn" name=<%= target.name %> id=<%= target.id %>>다운로드</button>
+        </div>
+    </body>
+    <script type="text/javascript" src="script.js"></script>
+</html>

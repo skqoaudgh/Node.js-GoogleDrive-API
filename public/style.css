@@ -32,3 +32,29 @@ body {
     padding: 5px;
     border: 1px solid black;
 }
+
+.filelabel {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.fileinfo {
+    margin-left: 10px;
+}
+
+.downloadbtn {
+    all: unset;
+    margin-top: 30px;
+    font-weight: bold;
+    text-align: center;
+    width: 80px;
+    height: 30px;
+    border: 2px solid #379eff;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.downloadbtn:hover {
+    background: #379eff;
+    color: white;
+}

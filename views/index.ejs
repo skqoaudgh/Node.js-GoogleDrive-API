@@ -16,7 +16,7 @@
             <ul class="filelist">
                 <% if(listFiles.length > 0) { %>
                     <% for(let i=0; i<listFiles.length; i++) { %>
-                        <li class="fileitem" name=<%= listFiles[i].name %> id=<%= listFiles[i].id %>><%= listFiles[i].name %></li>
+                        <li class="fileitem" id=<%= listFiles[i].id %>><%= listFiles[i].name %></li>
                     <% } %> 
                 <% } else { %>
                         <li class="filenone">No file found.</li>
