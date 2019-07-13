@@ -13,6 +13,9 @@
                 <input type="text" name="name" id="searchtext">
                 <button type="submit">Search</button>
             </form>
+            <div class="home-wrapper">
+                <button type="button" class="homebtn" id="homebtn">Home</button>
+            </div>
             <ul class="filelist">
                 <% if(listFiles.length > 0) { %>
                     <% for(let i=0; i<listFiles.length; i++) { %>
@@ -24,5 +27,5 @@
             </ul>
         </div>
     </body>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="script/index.js"></script>
 </html>

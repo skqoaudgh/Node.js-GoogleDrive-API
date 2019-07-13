@@ -14,6 +14,7 @@ function listFiles(req, res, auth) {
             return console.error('The API returned an error: ' + err);
         }
         const files = result.data.files;
+        req.session.success = false;
         res.render('index.ejs', {listFiles: files});
     });
 }
@@ -37,7 +38,9 @@ function detailFile(req, res, auth) {
                 }
                 else {
                     if(result.data.files[0]) {
-                        res.render('file.ejs', {target: result.data.files[0]});
+                        const temp = req.session.success;
+                        req.session.success = false;
+                        res.render('file.ejs', {target: result.data.files[0], done: temp});
                         callback();
                     }
                 }
@@ -67,7 +70,7 @@ function downloadFile(req, res, auth) {
     function(error, result) {
         result.data
         .on('end', function () {
-            console.log(req.fileName);
+            req.session.success = true;
             res.redirect(`http://127.0.0.1:3000/${req.fileName}`);
         })
         .on('error', function (error) {

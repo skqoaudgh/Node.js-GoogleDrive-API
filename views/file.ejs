@@ -8,6 +8,11 @@
         <title>Detail information</title>
     </head>
     <body>
+        <div>
+            <% if(done == true) { %>
+                <p class="notice">File downloaded</p>
+            <% } %>
+        </div>
         <div class="wrapper">
             <div class="filelabel">파일이름</div><span class="fileinfo"><%= target.name %></span><br>
             <div class="filelabel">크기</div><span class="fileinfo"><%= target.size %>bytes</span><br>
@@ -15,7 +20,8 @@
             <div class="filelabel">수정시간</div><span class="fileinfo"><%= target.modifiedTime %></span><br>
             <div class="filelabel">파일소유주</div><span class="fileinfo"><%= target.owners[0].displayName %>(<%= target.owners[0].emailAddress %>)</span><br>
             <button type="button" class="downloadbtn" name=<%= target.name %> id=<%= target.id %>>다운로드</button>
+            <button type="button" class="homebtn" id="homebtn">뒤로가기</button>
         </div>
     </body>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="script/file.js"></script>
 </html>

@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+const session = require('express-session');
 
 const indexRouter = require('./routes/index');
 
@@ -7,6 +7,11 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(session({
+    resave: true,
+    saveUninitialized: true,
+    secret: '123456789'
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
